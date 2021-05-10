@@ -8,9 +8,9 @@ upcoming events.
 
 _FEATURE 1: FILTER EVENTS BY CITY_
 
-As an user,
-I should be able to filter events by city,
-So that I can see the list of events taking place in that city.
+_As an_ user,
+_I should be able to_ filter events by city,
+_So that_ I can see the list of events taking place in that city.
 
 - Scenario 1: When user hasn’t searched for a city, show upcoming events from all cities.
 
@@ -32,9 +32,9 @@ So that I can see the list of events taking place in that city.
 
 _FEATURE 2: SHOW/HIDE AN EVENT'S DETAILS_
 
-As an user,
-I should be able to click on a button to show/hide details about an event,
-So that I can see the details of an event.
+_As an_ user,
+_I should be able to_ click on a button to show/hide details about an event,
+_So that_ I can see the details of an event.
 
 - Scenario 1: An event element is collapsed by default.
 
@@ -56,9 +56,9 @@ So that I can see the details of an event.
 
 _FEATURE 3: SPECIFY THE NUMBER OF EVENTS_
 
-As an user,
-I should be able to define the number of events I see,
-So that I can limit the number of events I see.
+_As an_ user,
+_I should be able to_ define the number of events I see,
+_So that_ I can limit the number of events I see.
 
 - Scenario 1: When user hasn’t specified a number, 32 is the default number.
 
@@ -74,9 +74,9 @@ So that I can limit the number of events I see.
 
 _FEATURE 4: USE THE APP WHEN OFFLINE_
 
-As an user,
-I should be able to see the app content offline,
-So that I can look for events even when out of internet.
+_As an_ user,
+_I should be able to_ see the app content offline,
+_So that_ I can look for events even when out of internet.
 
 - Scenario 1: Show cached data when there’s no internet connection.
 
@@ -92,15 +92,15 @@ So that I can look for events even when out of internet.
 
 _FEATURE 5: ADD SHORTCUT TO HOME SCREEN_
 
-As an user,
-I should be able to add a shortcut to my home screen,
-So that I can have access to the app when offline.
+_As an_ user,
+_I should be able to_ add a shortcut to my home screen,
+_So that_ I can have access to the app when offline.
 
 _FEATURE 6: DATA VISUALIZATION_
 
-As an user,
-I should be able to see a chart with the number of events in a city,
-So that I can see the amount of options of events I have.
+_As an_ user,
+_I should be able to_ see a chart with the number of events in a city,
+_So that_ I can see the amount of options of events I have.
 
 - Scenario 1: Show a chart with the number of upcoming events in each city.
 
