@@ -7,6 +7,7 @@ upcoming events.
 ## User stories, test scenarios and Gherkin's syntax
 
 _FEATURE 1: FILTER EVENTS BY CITY_
+
 As an user,
 I should be able to filter events by city,
 So that I can see the list of events taking place in that city.
@@ -30,6 +31,7 @@ So that I can see the list of events taking place in that city.
 1. THEN their city should be changed to that city and the user should receive a list of events in that city
 
 _FEATURE 2: SHOW/HIDE AN EVENT'S DETAILS_
+
 As an user,
 I should be able to click on a button to show/hide details about an event,
 So that I can see the details of an event.
@@ -53,6 +55,7 @@ So that I can see the details of an event.
 1. THEN the details will be hidden like before
 
 _FEATURE 3: SPECIFY THE NUMBER OF EVENTS_
+
 As an user,
 I should be able to define the number of events I see,
 So that I can limit the number of events I see.
@@ -70,6 +73,7 @@ So that I can limit the number of events I see.
 1. THEN they will be able to choose the number of events they will want to see
 
 _FEATURE 4: USE THE APP WHEN OFFLINE_
+
 As an user,
 I should be able to see the app content offline,
 So that I can look for events even when out of internet.
@@ -87,11 +91,13 @@ So that I can look for events even when out of internet.
 1. THEN the app will show an error screen
 
 _FEATURE 5: ADD SHORTCUT TO HOME SCREEN_
+
 As an user,
 I should be able to add a shortcut to my home screen,
 So that I can have access to the app when offline.
 
 _FEATURE 6: DATA VISUALIZATION_
+
 As an user,
 I should be able to see a chart with the number of events in a city,
 So that I can see the amount of options of events I have.
