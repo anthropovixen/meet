@@ -8,13 +8,11 @@
       "name": "aws",
       "runtime": "nodejs12.x",
       "region": "ap-southeast-2",
-      "timeout": 60,
-      "lambdaHashingVersion": "20201221",
       "environment": {
         "CLIENT_ID": "793105675417-msvbkhh8j3e64gc3vnbp4ap1asg06o02.apps.googleusercontent.com",
         "CLIENT_SECRET": "hFzEaOCb5SREzsT4pPVOlIh_",
         "PROJECT_ID": "meet-313504",
-        "CALENDAR_ID": "codinggaze@gmail.com"
+        "CALENDAR_ID": "fullstackwebdev@careerfoundry.com"
       },
       "stage": "dev",
       "variableSyntax": "\\${([^{}:]+?(?:\\(|:)(?:[^:{}][^{}]*?)?)}",
@@ -188,19 +186,19 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/auth-server/dev/1620964263754-2021-05-14T03:51:03.754Z/auth-server.zip"
+                "S3Key": "serverless/auth-server/dev/1621165002434-2021-05-16T11:36:42.434Z/auth-server.zip"
               },
               "Handler": "handler.getAuthURL",
               "Runtime": "nodejs12.x",
               "FunctionName": "auth-server-dev-getAuthURL",
               "MemorySize": 1024,
-              "Timeout": 60,
+              "Timeout": 6,
               "Environment": {
                 "Variables": {
                   "CLIENT_ID": "793105675417-msvbkhh8j3e64gc3vnbp4ap1asg06o02.apps.googleusercontent.com",
                   "CLIENT_SECRET": "hFzEaOCb5SREzsT4pPVOlIh_",
                   "PROJECT_ID": "meet-313504",
-                  "CALENDAR_ID": "codinggaze@gmail.com"
+                  "CALENDAR_ID": "fullstackwebdev@careerfoundry.com"
                 }
               },
               "Role": {
@@ -221,19 +219,19 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/auth-server/dev/1620964263754-2021-05-14T03:51:03.754Z/auth-server.zip"
+                "S3Key": "serverless/auth-server/dev/1621165002434-2021-05-16T11:36:42.434Z/auth-server.zip"
               },
               "Handler": "handler.getAccessToken",
               "Runtime": "nodejs12.x",
               "FunctionName": "auth-server-dev-getAccessToken",
               "MemorySize": 1024,
-              "Timeout": 60,
+              "Timeout": 6,
               "Environment": {
                 "Variables": {
                   "CLIENT_ID": "793105675417-msvbkhh8j3e64gc3vnbp4ap1asg06o02.apps.googleusercontent.com",
                   "CLIENT_SECRET": "hFzEaOCb5SREzsT4pPVOlIh_",
                   "PROJECT_ID": "meet-313504",
-                  "CALENDAR_ID": "codinggaze@gmail.com"
+                  "CALENDAR_ID": "fullstackwebdev@careerfoundry.com"
                 }
               },
               "Role": {
@@ -247,24 +245,24 @@
               "GetAccessTokenLogGroup"
             ]
           },
-          "GetAuthURLLambdaVersionk1tCQNc0AuHCsYzz9wwoTU4J3WfFul15bgnx6gG4": {
-            "Type": "AWS::Lambda::Version",
-            "DeletionPolicy": "Retain",
-            "Properties": {
-              "FunctionName": {
-                "Ref": "GetAuthURLLambdaFunction"
-              },
-              "CodeSha256": "ZeSNnGJrtfL/tVFJk92c7wOwPlylKeyvVmN5ai0fdcE="
-            }
-          },
-          "GetAccessTokenLambdaVersionAPhoBMQR4lajE1LrRSnCZbF5YJSkeCvLgWBOUkBM": {
+          "GetAccessTokenLambdaVersion5Tjg4gJoW0WHRZsLObuu4pCRgDr6Lxp1zehtH1KI": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetAccessTokenLambdaFunction"
               },
-              "CodeSha256": "ZeSNnGJrtfL/tVFJk92c7wOwPlylKeyvVmN5ai0fdcE="
+              "CodeSha256": "7pysorfHnvK0TCJBxwgx+7IvkabwpRplO4dBg7nor+Q="
+            }
+          },
+          "GetAuthURLLambdaVersiongfQxl0JSUhYCFYnSjSZATNbqSDx9E5mr9HufCMRIiQ": {
+            "Type": "AWS::Lambda::Version",
+            "DeletionPolicy": "Retain",
+            "Properties": {
+              "FunctionName": {
+                "Ref": "GetAuthURLLambdaFunction"
+              },
+              "CodeSha256": "7pysorfHnvK0TCJBxwgx+7IvkabwpRplO4dBg7nor+Q="
             }
           },
           "ApiGatewayRestApi": {
@@ -416,7 +414,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1620964260297": {
+          "ApiGatewayDeployment1621164999208": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -513,22 +511,22 @@
               "Name": "sls-auth-server-dev-ServerlessDeploymentBucketName"
             }
           },
-          "GetAuthURLLambdaFunctionQualifiedArn": {
-            "Description": "Current Lambda function version",
-            "Value": {
-              "Ref": "GetAuthURLLambdaVersionk1tCQNc0AuHCsYzz9wwoTU4J3WfFul15bgnx6gG4"
-            },
-            "Export": {
-              "Name": "sls-auth-server-dev-GetAuthURLLambdaFunctionQualifiedArn"
-            }
-          },
           "GetAccessTokenLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetAccessTokenLambdaVersionAPhoBMQR4lajE1LrRSnCZbF5YJSkeCvLgWBOUkBM"
+              "Ref": "GetAccessTokenLambdaVersion5Tjg4gJoW0WHRZsLObuu4pCRgDr6Lxp1zehtH1KI"
             },
             "Export": {
               "Name": "sls-auth-server-dev-GetAccessTokenLambdaFunctionQualifiedArn"
+            }
+          },
+          "GetAuthURLLambdaFunctionQualifiedArn": {
+            "Description": "Current Lambda function version",
+            "Value": {
+              "Ref": "GetAuthURLLambdaVersiongfQxl0JSUhYCFYnSjSZATNbqSDx9E5mr9HufCMRIiQ"
+            },
+            "Export": {
+              "Name": "sls-auth-server-dev-GetAuthURLLambdaFunctionQualifiedArn"
             }
           },
           "ServiceEndpoint": {
@@ -659,10 +657,10 @@
         "name": "auth-server-dev-getAuthURL",
         "package": {},
         "memory": 1024,
-        "timeout": 60,
+        "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "GetAuthURLLambdaVersionk1tCQNc0AuHCsYzz9wwoTU4J3WfFul15bgnx6gG4"
+        "versionLogicalId": "GetAuthURLLambdaVersiongfQxl0JSUhYCFYnSjSZATNbqSDx9E5mr9HufCMRIiQ"
       },
       "getAccessToken": {
         "handler": "handler.getAccessToken",
@@ -678,10 +676,10 @@
         "name": "auth-server-dev-getAccessToken",
         "package": {},
         "memory": 1024,
-        "timeout": 60,
+        "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "GetAccessTokenLambdaVersionAPhoBMQR4lajE1LrRSnCZbF5YJSkeCvLgWBOUkBM"
+        "versionLogicalId": "GetAccessTokenLambdaVersion5Tjg4gJoW0WHRZsLObuu4pCRgDr6Lxp1zehtH1KI"
       }
     },
     "configValidationMode": "warn",
@@ -702,7 +700,7 @@
     "artifact": "/Users/tanimaraes/Documents/Projects/career-foundry/41-test-driven-dev/meet-app/meet/auth-server/.serverless/auth-server.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/auth-server/dev/1620964263754-2021-05-14T03:51:03.754Z",
+    "artifactDirectoryName": "serverless/auth-server/dev/1621165002434-2021-05-16T11:36:42.434Z",
     "artifact": "auth-server.zip"
   }
 }

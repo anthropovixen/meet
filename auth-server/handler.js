@@ -37,6 +37,7 @@ module.exports.getAuthURL = async () => {
 			client_secret,
 			redirect_uris[0]
 		);
+
 		const code = decodeURIComponent(`${event.pathParameters.code}`);
 
 		return new Promise((resolve, reject) => {
@@ -48,12 +49,14 @@ module.exports.getAuthURL = async () => {
 			});
 		})
 			.then((token) => {
+				// Respond with OAuth token
 				return {
 					statusCode: 200,
 					body: JSON.stringify(token),
 				};
 			})
 			.catch((err) => {
+				// Handle error
 				console.error(err);
 				return {
 					statusCode: 500,
