@@ -65,4 +65,13 @@ describe('<App /> integration', () => {
 		expect(AppWrapper.state('events')).toEqual(allEvents);
 		AppWrapper.unmount();
 	});
+	test('App passes "eventCount" state as a prop to NumberOfEvents', () => {
+		const AppWrapper = mount(<App />);
+		const AppEventCount = AppWrapper.state('eventCount');
+		expect(AppEventCount).not.toEqual(undefined);
+		expect(AppWrapper.find(NumberOfEvents).props().eventCount).toEqual(
+			AppEventCount
+		);
+		AppWrapper.unmount();
+	});
 });
