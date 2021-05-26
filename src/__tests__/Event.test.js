@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Event from '../Event';
-import { mockData, mockEvent } from '../mock-data';
+import { mockData } from '../mock-data';
 import { extractEvents } from '../api';
 
 const eventData = extractEvents(mockData);
