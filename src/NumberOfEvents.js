@@ -27,11 +27,10 @@ class NumberOfEvents extends Component {
 		const { numberOfEvents } = this.state;
 		return (
 			<div className="numberOfEvents">
-				<label className="event-number-label">Number of Events:</label>
+				<label className="event-number-label">Number of Events (Max 32)</label>
 				<input
 					type="number"
 					className="event-number-input"
-					placeholder="Choose number of events you want to see"
 					value={numberOfEvents}
 					onChange={this.handleInputChange}
 				/>

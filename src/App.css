@@ -45,10 +45,9 @@ input[type='number'] {
 	display: flex;
 	flex-direction: column;
 	flex-basis: 300px;
-	max-width: 300px;
+	max-width: 250px;
 	position: relative;
-	margin-top: 30px;
-	margin-bottom: 30px;
+	margin: auto;
 }
 
 .suggestions {
@@ -101,6 +100,19 @@ input[type='number'] {
 	text-align: center;
 }
 
+.event-number-label {
+	font-size: 18px;
+}
+
+.numberOfEvents {
+	display: flex;
+	flex-direction: column;
+	flex-basis: 300px;
+	max-width: 250px;
+	position: relative;
+	margin: auto;
+}
+
 .detailsButton {
 	position: absolute;
 	right: 5px;
@@ -128,12 +140,6 @@ input[type='number'] {
 
 .description {
 	overflow-x: hidden;
-}
-
-.numberOfEvents {
-	width: 200px;
-	margin: 20px auto;
-	text-align: center;
 }
 
 .button-wrapper {
