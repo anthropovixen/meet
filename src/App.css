@@ -1,5 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:500);
 .App {
+	font-family: 'Roboto', sans-serif;
 	text-align: center;
 	padding: 2% 5%;
 }
@@ -45,8 +46,9 @@ input[type='number'] {
 	flex-direction: column;
 	flex-basis: 300px;
 	max-width: 300px;
-	margin: auto;
 	position: relative;
+	margin-top: 30px;
+	margin-bottom: 30px;
 }
 
 .suggestions {
@@ -63,7 +65,7 @@ input[type='number'] {
 .suggestions > li {
 	text-align: left;
 	padding: 8px 6px 8px 10px;
-	background-color: #eee;
+	background-color: #f2f2f2;
 	cursor: default;
 }
 
@@ -73,19 +75,33 @@ input[type='number'] {
 }
 
 .suggestions > li:hover {
-	background-color: #bcdcdb;
+	background-color: #dbc2a9;
 }
 
 .event {
 	padding: 10px 10px 35px;
 	margin-bottom: 10px;
 	text-align: left;
-	border: 1px solid #ccc;
+	border: 1px solid #c1c1c1;
 	border-radius: 4px;
 	position: relative;
 }
 
-.details-btn {
+.event-summary {
+	font-size: 25px;
+}
+
+.event-location {
+	font-style: italic;
+	margin-bottom: 10px;
+}
+
+.event-number-input {
+	width: 250px;
+	text-align: center;
+}
+
+.detailsButton {
 	position: absolute;
 	right: 5px;
 	bottom: 5px;
