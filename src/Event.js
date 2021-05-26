@@ -19,9 +19,9 @@ class Event extends Component {
 
 		return (
 			<div className="event">
-				<h1 className="summary">{summary}</h1>
-				<p className="date">{dateTime}</p>
-				<p className="location">{location}</p>
+				<h1 className="event-summary">{summary}</h1>
+				<p className="event-date">{dateTime}</p>
+				<p className="event-location">{location}</p>
 
 				{this.state.showDetails && (
 					<div className="expanded">
