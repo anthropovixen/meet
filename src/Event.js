@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 
 class Event extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			showDetails: false,
-		};
-	}
+	state = {
+		event: {},
+		showDetails: false,
+	};
+
 	handleShowDetails = () => {
 		if (this.state.showDetails === false) {
 			this.setState({ showDetails: false });
@@ -17,6 +16,7 @@ class Event extends Component {
 
 	render() {
 		const { summary, location, description, link, dateTime } = this.props.event;
+
 		return (
 			<div className="event">
 				<h1 className="summary">{summary}</h1>

@@ -5,25 +5,33 @@ import NumberOfEvents from '../NumberOfEvents';
 describe('<NumberOfEvents /> component', () => {
 	let NumberOfEventsWrapper;
 	beforeAll(() => {
-		NumberOfEventsWrapper = shallow(<NumberOfEvents />);
+		NumberOfEventsWrapper = shallow(<NumberOfEvents updateEvents={() => {}} />);
+	});
+
+	test('render the NumberOfEvents component', () => {
+		expect(NumberOfEventsWrapper).toHaveLength(1);
 	});
 
 	test('render text input', () => {
 		expect(NumberOfEventsWrapper.find('.event-number-input')).toHaveLength(1);
 	});
 
-	test('input value is equal to 32 default', () => {
+	test('render text input correctly', () => {
+		const NumberOfEvents = NumberOfEventsWrapper.state('numberOfEvents');
 		expect(
-			NumberOfEventsWrapper.find('.event-number-input').at(0).props().value
-		).toEqual(32);
+			NumberOfEventsWrapper.find('.event-number-input').prop('value')
+		).toBe(NumberOfEvents);
 	});
 
-	test('check on change state', () => {
-		const eventValue = { target: { value: 5 } };
+	test('change state', () => {
+		NumberOfEventsWrapper.setState({
+			numberOfEvents: '32',
+		});
+		const eventValue = { target: { value: '32' } };
 		NumberOfEventsWrapper.find('.event-number-input').simulate(
 			'change',
 			eventValue
 		);
-		expect(NumberOfEventsWrapper.state('eventValue')).toBe(5);
+		expect(NumberOfEventsWrapper.state('numberOfEvents')).toBe('32');
 	});
 });

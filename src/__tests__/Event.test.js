@@ -1,12 +1,19 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Event from '../Event';
-import { mockEvent } from '../mock-data';
+import { mockData, mockEvent } from '../mock-data';
+import { extractEvents } from '../api';
+
+const eventData = extractEvents(mockData);
 
 describe('<Event /> component', () => {
 	let EventWrapper;
 	beforeAll(() => {
-		EventWrapper = shallow(<Event event={mockEvent} />);
+		EventWrapper = shallow(<Event event={eventData[0]} />);
+	});
+
+	test('render event component', () => {
+		expect(EventWrapper).toHaveLength(1);
 	});
 
 	test('render event details', () => {
