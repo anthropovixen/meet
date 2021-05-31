@@ -4,10 +4,10 @@ describe('show/hide an event details', () => {
 	let browser, page;
 
 	beforeAll(async () => {
-		jest.setTimeout(10000);
+		jest.setTimeout(300000);
 		browser = await puppeteer.launch({
-			headless: false,
-			slowMo: 250,
+			// headless: true,
+			// slowMo: 250,
 			ignoreDefaultArgs: ['--disable-extensions'],
 		});
 		page = await browser.newPage();
@@ -15,9 +15,24 @@ describe('show/hide an event details', () => {
 		await page.waitForSelector('.event');
 	});
 
+	afterAll(() => {
+		browser.close();
+	});
+
 	test('An event element is collapsed by default', async () => {
 		const eventDetails = await page.$('.event .expanded');
 		expect(eventDetails).toBeNull();
-		browser.close();
+	});
+
+	test('User can expand an event to see its details', async () => {
+		await page.click('.event .detailsButton');
+		const eventDetails = await page.$('.event .expanded');
+		expect(eventDetails).toBeDefined();
+	});
+
+	test('User can collapse an event to hide its details', async () => {
+		await page.click('.event .detailsButton');
+		const eventDetails = await page.$('.event .expanded');
+		expect(eventDetails).toBeNull();
 	});
 });

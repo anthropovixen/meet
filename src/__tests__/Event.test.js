@@ -4,12 +4,12 @@ import Event from '../Event';
 import { mockData } from '../mock-data';
 import { extractEvents } from '../api';
 
-const eventData = extractEvents(mockData);
+const eventDetail = extractEvents(mockData);
 
 describe('<Event /> component', () => {
 	let EventWrapper;
 	beforeAll(() => {
-		EventWrapper = shallow(<Event event={eventData[0]} />);
+		EventWrapper = shallow(<Event event={eventDetail} />);
 	});
 
 	test('render event component', () => {
@@ -21,14 +21,13 @@ describe('<Event /> component', () => {
 	});
 
 	test('render show event details', () => {
-		EventWrapper.setState({ showDetails: true });
-		EventWrapper.find('.detailsButton').simulate('click');
-		expect(EventWrapper.find('.expanded')).toHaveLength(1);
+		expect(EventWrapper.find('.detailsButton')).toHaveLength(1);
 	});
 
 	test('render hide event details', () => {
 		EventWrapper.setState({ showDetails: false });
 		EventWrapper.find('.detailsButton').simulate('click');
-		expect(EventWrapper.find('.expanded')).toHaveLength(0);
+		const eventDetails = EventWrapper.find('.eventDetails');
+		expect(eventDetails).toHaveLength(0);
 	});
 });

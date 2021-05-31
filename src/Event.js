@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 
 class Event extends Component {
 	state = {
-		event: {},
 		showDetails: false,
 	};
 
 	handleShowDetails = () => {
-		if (this.state.showDetails === false) {
+		if (this.state.showDetails === true) {
 			this.setState({ showDetails: false });
 		} else {
 			this.setState({ showDetails: true });
@@ -15,19 +14,21 @@ class Event extends Component {
 	};
 
 	render() {
-		const { summary, location, description, link, dateTime } = this.props.event;
+		const showDetails = this.state.showDetails;
+		const { event } = this.props;
 
 		return (
 			<div className="event">
-				<h1 className="event-summary">{summary}</h1>
-				<p className="event-date">{dateTime}</p>
-				<p className="event-location">{location}</p>
+				<h2 className="event-summary">{event.summary}</h2>
+				<p className="event-location">{event.location}</p>
+				{/* <p className="event-date">
+					{event.start.dateTime} ({event.start.timeZone} Standard Time)
+				</p> */}
 
-				{this.state.showDetails && (
+				{showDetails && (
 					<div className="expanded">
-						<h2>About event</h2>
-						<p className="description">{description}</p>
-						<a className="link" href={link}>
+						<p className="description">{event.description}</p>
+						<a className="link" href={event.htmlLink}>
 							See details on Google Calendar
 						</a>
 					</div>
@@ -37,7 +38,7 @@ class Event extends Component {
 					className="detailsButton"
 					onClick={() => this.handleShowDetails()}
 				>
-					{!this.state.showDetails ? 'Show details' : 'Hide-details'}
+					{!showDetails ? 'Show more' : 'Hide'}
 				</button>
 			</div>
 		);
