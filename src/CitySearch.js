@@ -19,13 +19,6 @@ class CitySearch extends Component {
 		const suggestions = this.props.locations.filter((location) => {
 			return location.toUpperCase().indexOf(value.toUpperCase()) > -1;
 		});
-		if (value === '') {
-			this.setState({
-				suggestions: [],
-				query: '',
-				showSuggestions: false,
-			});
-		}
 		if (suggestions.length === 0) {
 			this.setState({
 				query: value,
@@ -54,7 +47,6 @@ class CitySearch extends Component {
 	render() {
 		return (
 			<div className="CitySearch">
-				<InfoAlert text={this.state.infoText} />
 				<input
 					type="text"
 					className="city"
@@ -64,26 +56,26 @@ class CitySearch extends Component {
 						this.setState({ showSuggestions: true });
 					}}
 				/>
-				<ul
-					className="suggestions"
-					style={
-						this.state.showSuggestions
-							? 'suggestions showSuggestions'
-							: 'display-none'
-					}
-				>
-					{this.state.suggestions.map((suggestion) => (
-						<li
-							key={suggestion}
-							onClick={() => this.handleItemClicked(suggestion)}
-						>
-							{suggestion}
+				{this.state.suggestions.length >= 1 ? (
+					<ul
+						className="suggestions"
+						style={this.state.showSuggestions ? {} : { display: 'none' }}
+					>
+						{this.state.suggestions.map((suggestion) => (
+							<li
+								key={suggestion}
+								onClick={() => this.handleItemClicked(suggestion)}
+							>
+								{suggestion}
+							</li>
+						))}
+						<li onClick={() => this.handleItemClicked('all')}>
+							<b>See all cities</b>
 						</li>
-					))}
-					<li onClick={() => this.handleItemClicked('all')}>
-						<b>See all cities</b>
-					</li>
-				</ul>
+					</ul>
+				) : (
+					<InfoAlert text={this.state.infoText} />
+				)}
 			</div>
 		);
 	}
