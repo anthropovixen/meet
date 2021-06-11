@@ -65,6 +65,7 @@ class App extends Component {
 	}
 
 	render() {
+		const { tokenCheck } = this.state;
 		return tokenCheck === false ? (
 			<div className="App">
 				<Login />
