@@ -25,7 +25,7 @@ function Login() {
 					</a>
 				</div>
 			</div>
-			<a href="meet/privacy.html" rel="nofollow noopener">
+			<a href="/privacy.html" rel="nofollow noopener">
 				Privacy Policy
 			</a>
 		</div>
