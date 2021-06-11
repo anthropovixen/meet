@@ -25,7 +25,10 @@ function Login() {
 					</a>
 				</div>
 			</div>
-			<a href="privacy.html" rel="nofollow noopener">
+			<a
+				href="https://anthropovixen.github.io/meet/privacy.html"
+				rel="nofollow noopener"
+			>
 				Privacy Policy
 			</a>
 		</div>
