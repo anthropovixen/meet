@@ -9,7 +9,6 @@ class CitySearch extends Component {
 			query: '',
 			suggestions: [],
 			showSuggestions: false,
-			infoText: '',
 		};
 	}
 
