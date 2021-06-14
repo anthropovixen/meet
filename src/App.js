@@ -16,10 +16,6 @@ class App extends Component {
 		tokenCheck: false,
 	};
 
-	componentWillUnmount() {
-		this.mounted = false;
-	}
-
 	updateEvents = (location, eventCount) => {
 		let locationEvents;
 		getEvents().then((events) => {
@@ -72,6 +68,10 @@ class App extends Component {
 				});
 			}
 		});
+	}
+
+	componentWillUnmount() {
+		this.mounted = false;
 	}
 
 	render() {
