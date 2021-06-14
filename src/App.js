@@ -5,7 +5,7 @@ import EventList from './EventList';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
 import Login from './Login';
-import { getEvents, checkToken } from './api';
+import { getEvents, checkToken, extractLocations } from './api';
 
 class App extends Component {
 	state = {
@@ -14,6 +14,29 @@ class App extends Component {
 		numberOfEvents: 32,
 		currentLocation: 'all',
 		tokenCheck: false,
+	};
+
+	componentWillUnmount() {
+		this.mounted = false;
+	}
+
+	updateEvents = (location, eventCount) => {
+		let locationEvents;
+		getEvents().then((events) => {
+			if (location === 'all' && eventCount === 0) {
+				locationEvents = events;
+			} else if (location !== 'all' && eventCount === 0) {
+				locationEvents = events.filter((event) => event.location === location);
+			} else if ((location === '') & (eventCount > 0)) {
+				locationEvents = events.slice(0, eventCount);
+			} else if (location === '' && eventCount === '') {
+				locationEvents = events;
+			}
+			this.setState({
+				events: locationEvents,
+				numberOfEvents: eventCount,
+			});
+		});
 	};
 
 	async componentDidMount() {
@@ -30,43 +53,26 @@ class App extends Component {
 			this.setState({ tokenCheck: true });
 			this.updateEvents();
 		}
-	}
-	componentWillUnmount() {
-		this.mounted = false;
-	}
 
-	updateEvents = (location, eventCount) => {
-		const { currentLocation, numberOfEvents } = this.state;
-		if (location) {
-			getEvents().then((response) => {
-				const locationEvents =
-					location === 'all'
-						? response.events
-						: response.events.filter((event) => event.location === location);
-				const filteredEvents = locationEvents.slice(0, numberOfEvents);
-				return this.setState({
-					events: filteredEvents,
-					currentLocation: location,
-					locations: response.locations,
-				});
+		if (!navigator.onLine) {
+			this.setState({
+				warningText: 'Cached data is being displayed.',
 			});
 		} else {
-			getEvents().then((response) => {
-				const locationEvents =
-					currentLocation === 'all'
-						? response.events
-						: response.events.filter(
-								(event) => event.location === currentLocation
-						  );
-				const filteredEvents = locationEvents.slice(0, eventCount);
-				return this.setState({
-					events: filteredEvents,
-					numberOfEvents: eventCount,
-					locations: response.locations,
-				});
+			this.setState({
+				warningText: '',
 			});
 		}
-	};
+
+		getEvents().then((events) => {
+			if (this.mounted) {
+				this.setState({
+					events: events.slice(0, this.state.numberOfEvents),
+					locations: extractLocations(events),
+				});
+			}
+		});
+	}
 
 	render() {
 		const { locations, numberOfEvents, events, tokenCheck } = this.state;
