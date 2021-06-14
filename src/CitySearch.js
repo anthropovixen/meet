@@ -9,7 +9,7 @@ class CitySearch extends Component {
 		showSuggestions: false,
 	};
 
-	handleInputChange = (event) => {
+	handleInputChanged = (event) => {
 		const value = event.target.value;
 		this.setState({ showSuggestions: true });
 		const suggestions = this.props.locations.filter((location) => {
@@ -49,7 +49,7 @@ class CitySearch extends Component {
 					className="city"
 					value={this.state.query}
 					placeholder="Search for city"
-					onChange={this.handleInputChange}
+					onChange={this.handleInputChanged}
 				/>
 				<ul
 					className={
