@@ -71,15 +71,15 @@ class App extends Component {
 				<Login />
 			</div>
 		) : (
-			<div>
+			<div className="App">
 				<h1>Meet App</h1>
-				<h3> Search events in your city</h3>
+				<h5> Search events in your city</h5>
 				<CitySearch
 					locations={this.state.locations}
 					updateEvents={this.updateEvents}
 					numberOfEvents={this.state.numberOfEvents}
 				/>
-				<h3>Choose how may events you want to see (max 32)</h3>
+				<h5>Choose how may events you want to see (max 32)</h5>
 				<NumberOfEvents
 					numberOfEvents={this.state.numberOfEvents}
 					updateEvents={this.updateEvents}
