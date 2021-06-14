@@ -6,6 +6,7 @@ class CitySearch extends Component {
 		super();
 
 		this.state = {
+			locations: this.props.locations,
 			query: '',
 			suggestions: [],
 			showSuggestions: false,
@@ -38,6 +39,7 @@ class CitySearch extends Component {
 	handleItemClicked = (suggestion) => {
 		this.setState({
 			query: suggestion,
+			suggestions: [],
 			showSuggestions: false,
 			infoText: '',
 		});

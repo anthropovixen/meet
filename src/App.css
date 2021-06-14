@@ -151,7 +151,7 @@ input[type='number'] {
 }
 
 .Alert {
-	position: fixed;
+	position: relative;
 	top: 20px;
 }
 
@@ -287,4 +287,8 @@ input[type='number'] {
 	font-size: 14px;
 	letter-spacing: 0.2px;
 	font-family: 'Roboto';
+}
+
+.label {
+	font-size: 14px;
 }
