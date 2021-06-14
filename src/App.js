@@ -16,6 +16,35 @@ class App extends Component {
 		tokenCheck: false,
 	};
 
+	updateEvents = (location, eventCount) => {
+		const { currentLocation, numberOfEvents } = this.state;
+		if (location) {
+			getEvents().then((events) => {
+				const locationEvents =
+					location === 'all'
+						? events
+						: events.filter((event) => event.location === location);
+				const filteredEvents = locationEvents.slice(0, numberOfEvents);
+				this.setState({
+					events: filteredEvents,
+					currentLocation: location,
+				});
+			});
+		} else {
+			getEvents().then((events) => {
+				const locationEvents =
+					currentLocation === 'all'
+						? events
+						: events.filter((event) => event.location === currentLocation);
+				const filteredEvents = locationEvents.slice(0, eventCount);
+				this.setState({
+					events: filteredEvents,
+					numberOfEvents: eventCount,
+				});
+			});
+		}
+	};
+
 	async componentDidMount() {
 		const accessToken = localStorage.getItem('access_token');
 		const validToken =
@@ -35,55 +64,24 @@ class App extends Component {
 		this.mounted = false;
 	}
 
-	updateEvents = (location, eventCount) => {
-		const { currentLocation, numberOfEvents } = this.state;
-		if (location) {
-			getEvents().then((response) => {
-				const locationEvents =
-					location === 'all'
-						? response.events
-						: response.events.filter((event) => event.location === location);
-				const filteredEvents = locationEvents.slice(0, numberOfEvents);
-				return this.setState({
-					events: filteredEvents,
-					currentLocation: location,
-					locations: response.locations,
-				});
-			});
-		} else {
-			getEvents().then((response) => {
-				const locationEvents =
-					currentLocation === 'all'
-						? response.events
-						: response.events.filter(
-								(event) => event.location === currentLocation
-						  );
-				const filteredEvents = locationEvents.slice(0, eventCount);
-				return this.setState({
-					events: filteredEvents,
-					numberOfEvents: eventCount,
-					locations: response.locations,
-				});
-			});
-		}
-	};
-
 	render() {
-		const { locations, numberOfEvents, events, tokenCheck } = this.state;
+		const { tokenCheck } = this.state;
 		return tokenCheck === false ? (
 			<div className="App">
 				<Login />
 			</div>
 		) : (
-			<div className="App">
+			<div>
 				<h1>Meet App</h1>
-				<h3> Choose your city</h3>
-				<CitySearch updateEvents={this.updateEvents} locations={locations} />
-				<NumberOfEvents
+				<CitySearch
+					locations={this.state.locations}
 					updateEvents={this.updateEvents}
-					numberOfEvents={numberOfEvents}
 				/>
-				<EventList events={events} />
+				<NumberOfEvents
+					numberOfEvents={this.state.numberOfEvents}
+					updateEvents={this.updateEvents}
+				/>
+				<EventList events={this.state.events} />
 			</div>
 		);
 	}
