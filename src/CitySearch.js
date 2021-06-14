@@ -6,7 +6,6 @@ class CitySearch extends Component {
 		super();
 
 		this.state = {
-			locations: this.props.locations,
 			query: '',
 			suggestions: [],
 			showSuggestions: false,
