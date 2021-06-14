@@ -6,6 +6,7 @@ import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
 import Login from './Login';
 import { getEvents, checkToken } from './api';
+import { WarningAlert } from './Alert';
 
 class App extends Component {
 	state = {
@@ -14,32 +15,37 @@ class App extends Component {
 		numberOfEvents: 32,
 		currentLocation: 'all',
 		tokenCheck: false,
+		warningText: '',
 	};
 
 	updateEvents = (location, eventCount) => {
 		const { currentLocation, numberOfEvents } = this.state;
 		if (location) {
-			getEvents().then((events) => {
+			getEvents().then((response) => {
 				const locationEvents =
 					location === 'all'
-						? events
-						: events.filter((event) => event.location === location);
-				const filteredEvents = locationEvents.slice(0, numberOfEvents);
-				this.setState({
-					events: filteredEvents,
+						? response.events
+						: response.events.filter((event) => event.location === location);
+				const events = locationEvents.slice(0, numberOfEvents);
+				return this.setState({
+					events: events,
 					currentLocation: location,
+					locations: response.locations,
 				});
 			});
 		} else {
-			getEvents().then((events) => {
+			getEvents().then((response) => {
 				const locationEvents =
 					currentLocation === 'all'
-						? events
-						: events.filter((event) => event.location === currentLocation);
-				const filteredEvents = locationEvents.slice(0, eventCount);
-				this.setState({
-					events: filteredEvents,
+						? response.events
+						: response.events.filter(
+								(event) => event.location === currentLocation
+						  );
+				const events = locationEvents.slice(0, eventCount);
+				return this.setState({
+					events: events,
 					numberOfEvents: eventCount,
+					locations: response.locations,
 				});
 			});
 		}
@@ -59,13 +65,22 @@ class App extends Component {
 			this.setState({ tokenCheck: true });
 			this.updateEvents();
 		}
+		if (!navigator.onLine) {
+			this.setState({
+				warningText: 'Cached data is being displayed.',
+			});
+		} else {
+			this.setState({
+				warningText: '',
+			});
+		}
 	}
 	componentWillUnmount() {
 		this.mounted = false;
 	}
 
 	render() {
-		const { tokenCheck } = this.state;
+		const { tokenCheck, locations, numberOfEvents, events } = this.state;
 		return tokenCheck === false ? (
 			<div className="App">
 				<Login />
@@ -73,18 +88,16 @@ class App extends Component {
 		) : (
 			<div className="App">
 				<h1>Meet App</h1>
-				<h5> Search events in your city</h5>
-				<CitySearch
-					locations={this.state.locations}
-					updateEvents={this.updateEvents}
-					numberOfEvents={this.state.numberOfEvents}
-				/>
-				<h5>Choose how may events you want to see (max 32)</h5>
+				<h5>Choose your nearest city</h5>
+				<CitySearch updateEvents={this.updateEvents} locations={locations} />
+				<h5> Number of events you want to see</h5>
 				<NumberOfEvents
-					numberOfEvents={this.state.numberOfEvents}
 					updateEvents={this.updateEvents}
+					numberOfEvents={numberOfEvents}
 				/>
-				<EventList events={this.state.events} />
+				<WarningAlert text={this.state.warningText} />
+				<h5> List of events</h5>
+				<EventList events={events} />
 			</div>
 		);
 	}
