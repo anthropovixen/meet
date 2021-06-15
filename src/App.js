@@ -18,7 +18,7 @@ class App extends Component {
 		warningText: '',
 	};
 
-	updateEvents = (location, eventCount) => {
+	updateEvents = (location, eventCount = 32) => {
 		const { currentLocation, numberOfEvents } = this.state;
 		if (location) {
 			getEvents().then((response) => {

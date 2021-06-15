@@ -17,7 +17,7 @@ function Login() {
 						/>
 					</div>
 					<a
-						href="https://rl6mfyisw7.execute-api.ap-southeast-2.amazonaws.com/dev/api/get-auth-url"
+						href="https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcalendar.readonly&response_type=code&client_id=793105675417-msvbkhh8j3e64gc3vnbp4ap1asg06o02.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fanthropovixen.github.io%2Fmeet%2F"
 						rel="nofollow noopener"
 						class="btn-text"
 					>
