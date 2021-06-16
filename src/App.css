@@ -41,15 +41,15 @@ input[type='number'] {
 	width: 250px;
 }
 
-/* .CitySearch,
+.CitySearch,
 .numberOfEvents {
 	display: flex;
 	flex-direction: column;
 	flex-basis: 300px;
 	max-width: 250px;
 	position: relative;
-	margin: auto; 
-} */
+	margin: auto;
+}
 
 .suggestions {
 	width: 300px;
