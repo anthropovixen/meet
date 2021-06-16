@@ -51,8 +51,9 @@ input[type='number'] {
 }
 
 .suggestions {
-	width: 250px;
+	width: 300px;
 	position: absolute;
+	top: 15px;
 	z-index: 2;
 	align-self: center;
 	margin: 0;
@@ -151,7 +152,7 @@ input[type='number'] {
 }
 
 .Alert {
-	position: relative;
+	position: absolute;
 	top: 15px;
 }
 
