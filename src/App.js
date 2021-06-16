@@ -15,37 +15,32 @@ class App extends Component {
 		numberOfEvents: 32,
 		currentLocation: 'all',
 		tokenCheck: false,
-		warningText: '',
 	};
 
-	updateEvents = (location, eventCount = 32) => {
+	updateEvents = (location, eventCount) => {
 		const { currentLocation, numberOfEvents } = this.state;
 		if (location) {
-			getEvents().then((response) => {
+			getEvents().then((events) => {
 				const locationEvents =
 					location === 'all'
-						? response.events
-						: response.events.filter((event) => event.location === location);
-				const events = locationEvents.slice(0, numberOfEvents);
-				return this.setState({
-					events: events,
+						? events
+						: events.filter((event) => event.location === location);
+				const filteredEvents = locationEvents.slice(0, numberOfEvents);
+				this.setState({
+					events: filteredEvents,
 					currentLocation: location,
-					locations: response.locations,
 				});
 			});
 		} else {
-			getEvents().then((response) => {
+			getEvents().then((events) => {
 				const locationEvents =
 					currentLocation === 'all'
-						? response.events
-						: response.events.filter(
-								(event) => event.location === currentLocation
-						  );
-				const events = locationEvents.slice(0, eventCount);
-				return this.setState({
-					events: events,
+						? events
+						: events.filter((event) => event.location === currentLocation);
+				const filteredEvents = locationEvents.slice(0, eventCount);
+				this.setState({
+					events: filteredEvents,
 					numberOfEvents: eventCount,
-					locations: response.locations,
 				});
 			});
 		}
@@ -80,7 +75,7 @@ class App extends Component {
 	}
 
 	render() {
-		const { tokenCheck, locations, numberOfEvents, events } = this.state;
+		const { tokenCheck } = this.state;
 		return tokenCheck === false ? (
 			<div className="App">
 				<Login />
@@ -88,16 +83,18 @@ class App extends Component {
 		) : (
 			<div className="App">
 				<h1>Meet App</h1>
-				<h5>Choose your nearest city</h5>
-				<CitySearch updateEvents={this.updateEvents} locations={locations} />
-				<h5> Number of events you want to see</h5>
-				<NumberOfEvents
+				<h4> Find your nearest city</h4>
+				<CitySearch
+					locations={this.state.locations}
 					updateEvents={this.updateEvents}
-					numberOfEvents={numberOfEvents}
+				/>
+				<h4>Choose the number of events you want to see</h4>
+				<NumberOfEvents
+					numberOfEvents={this.state.numberOfEvents}
+					updateEvents={this.updateEvents}
 				/>
 				<WarningAlert text={this.state.warningText} />
-				<h5> List of events</h5>
-				<EventList events={events} />
+				<EventList events={this.state.events} />
 			</div>
 		);
 	}
