@@ -5,7 +5,7 @@ function Login() {
 		<div className="App">
 			<h1> Welcome to the Meet App</h1>
 			<h4>
-				Log in to see upcoming events aroung the world for full-stack developers
+				Log in to see upcoming events around the world for full-stack developers
 			</h4>
 			<div className="button_cont" align="center">
 				<div class="google-btn">
