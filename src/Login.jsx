@@ -3,9 +3,10 @@ import React from 'react';
 function Login() {
 	return (
 		<div className="App">
-			<h1> Welcome to the Meet App</h1>
+			<h1> Welcome to the Web Development Meet App</h1>
 			<h4>
-				Log in to see upcoming events around the world for full-stack developers
+				Want to improve yor dev skills? Search for upcoming events in Web
+				Development from around the world!
 			</h4>
 			<div className="button_cont" align="center">
 				<div class="google-btn">
