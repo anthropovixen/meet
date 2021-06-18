@@ -21,18 +21,20 @@ const EventGenre = ({ events }) => {
 
 	const colors = ['#008744', '#0057E7', '#D62D20', '#FFA700', '#000000'];
 	return (
-		<ResponsiveContainer height={400}>
+		<ResponsiveContainer height="100%" width="100%">
 			<PieChart width={400} height={400}>
 				<Pie
 					data={data}
 					cx="50%"
 					cy="50%"
 					labelLine={false}
-					legendType="square"
+					LegendType="square"
 					outerRadius={80}
 					fill="#8884d8"
 					dataKey="value"
-					label={({ percent }) => `${(percent * 100).toFixed(0)}%`}
+					label={({ name, percent }) =>
+						`${name} ${(percent * 100).toFixed(0)}%`
+					}
 				>
 					{data.map((entry, index) => (
 						<Cell
