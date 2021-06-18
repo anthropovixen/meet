@@ -20,31 +20,31 @@ class App extends Component {
 	updateEvents = (location, eventCount) => {
 		const { currentLocation, numberOfEvents } = this.state;
 		if (location) {
-			getEvents().then((response) => {
+			getEvents().then((events) => {
 				const locationEvents =
 					location === 'all'
-						? response.events
-						: response.events.filter((event) => event.location === location);
-				const events = locationEvents.slice(0, numberOfEvents);
+						? events.events
+						: events.events.filter((event) => event.location === location);
+				const filteredEvents = locationEvents.slice(0, numberOfEvents);
 				this.setState({
-					events: events,
+					events: filteredEvents,
 					currentLocation: location,
-					locations: response.locations,
+					locations: events.locations,
 				});
 			});
 		} else {
-			getEvents().then((response) => {
+			getEvents().then((events) => {
 				const locationEvents =
 					location === 'all'
-						? response.events
-						: response.events.filter(
+						? events.events
+						: events.events.filter(
 								(event) => event.location === currentLocation
 						  );
-				const events = locationEvents.slice(0, eventCount);
+				const filteredEvents = locationEvents.slice(0, eventCount);
 				this.setState({
-					events: events,
+					events: filteredEvents,
 					numberOfEvents: eventCount,
-					locations: response.locations,
+					locations: events.locations,
 				});
 			});
 		}
