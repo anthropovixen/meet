@@ -10,7 +10,7 @@ class NumberOfEvents extends Component {
 		const value = event.target.value;
 		this.props.updateEvents(null, value);
 		this.setState({
-			NumberOfEvents: value,
+			numberOfEvents: value,
 		});
 		if (value < 1 || value > 32) {
 			this.setState({
