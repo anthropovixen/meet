@@ -1,4 +1,4 @@
-# MEET APP
+# WEB DEV MEETUP APP
 
 This App is a serverless, progressive web application (PWA) built with React using a test-driven
 development (TDD) technique. The application uses the Google Calendar API to fetch
