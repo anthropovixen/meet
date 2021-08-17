@@ -1,0 +1,110 @@
+body {
+	background: #687a8f;
+	font-family: 'Courier New', monospace;
+}
+
+.section-title {
+	font-weight: 700;
+	font-size: 4rem;
+	font-weight: 700;
+	color: white;
+}
+
+.section-description {
+	font-size: 2rem;
+	margin: 5rem 10rem 5rem 10rem;
+	padding: 3%;
+	color: white;
+}
+
+.nav-link {
+	text-decoration: none;
+	color: white;
+	font-size: 2.5rem;
+	font-weight: 600;
+	text-align: center;
+	padding: 200px;
+}
+
+.nav-link:hover {
+	color: #687a8f;
+	text-decoration: none;
+	cursor: pointer;
+	font-weight: bold;
+}
+
+.jumbotron {
+	position: relative;
+
+	background: linear-gradient(rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 0.01)),
+		url('/src/assets/webdevmeetpup-background.jpeg');
+	background-attachment: fixed;
+	background-size: cover;
+	width: 100%;
+	margin-top: 0;
+	border-radius: 10px;
+}
+
+.jumbotron h1 {
+	font-size: 8rem;
+	font-weight: 600;
+	color: white;
+	text-shadow: 10px 6px 6px black;
+	margin: 5%;
+}
+
+.jumbotron p {
+	font-size: 2rem;
+	font-weight: 300;
+	color: white;
+	margin: auto 20% 5% 20%;
+	background: #687a8f;
+	padding: 80px 90px;
+}
+
+.jumbotron-button {
+	font-size: 2.5rem;
+	font-weight: bold;
+	color: #f7882f;
+	background-color: white;
+	border: 1px solid #687a8f;
+	border-radius: 3px;
+	padding: 1.5%;
+}
+
+.privacy-button {
+	font-size: 1.5rem;
+	color: #687a8f;
+	background-color: white;
+	border: 1px solid #687a8f;
+	border-radius: 3px;
+	padding: 1.5%;
+}
+
+.privacy-container {
+	color: #687a8f;
+	background-color: white;
+	padding: 3%;
+	border-radius: 10px;
+	width: 100%;
+}
+
+.privacy-title {
+	font-weight: 600;
+	font-size: 2.5rem;
+	font-weight: 700;
+}
+
+.privacy-description {
+	font-size: 1.5rem;
+	margin: auto 20% auto 20%;
+	padding: 3%;
+}
+
+@media (max-width: 480px) {
+	.half {
+		width: 100%;
+		float: none;
+		margin: 0;
+	}
+}

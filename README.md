@@ -6,6 +6,8 @@ With this app, users can search for a city and view a list of upcoming events in
 
 **See the hosted application [here](https://anthropovixen.github.io/webdevmeetup/).**
 
+![WebDevMeetUp App](public/webdevmeetup-showcase.gif)
+
 ## Start the App
 
 ### Install dependencies
