@@ -107,7 +107,7 @@ class App extends Component {
 			</div>
 		) : (
 			<div className="App">
-				<h1>Meet App</h1>
+				<h1>WEB DEV Meet UP</h1>
 				<h4> Find your nearest city</h4>
 				<CitySearch
 					locations={this.state.locations}
