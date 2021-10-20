@@ -1,26 +1,11 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Navbar, Nav, Button, Jumbotron, Container } from 'react-bootstrap';
+import { Button, Jumbotron, Container } from 'react-bootstrap';
 import './Login.css';
 
 function Login() {
 	return (
 		<div>
-			<section>
-				<header>
-					<Navbar collapseOnSelect fixed="top" expand="lg">
-						<Container>
-							<Navbar.Toggle aria-controls="basic-navbar-nav" />
-							<Navbar.Collapse id="basic=navbar-nav">
-								<Nav className="m-auto">
-									<Nav.Link href="#about">About</Nav.Link>
-									<Nav.Link href="#privacy">Privacy</Nav.Link>
-								</Nav>
-							</Navbar.Collapse>
-						</Container>
-					</Navbar>
-				</header>
-			</section>
 			{/** Jumbotron */}
 
 			<section>
