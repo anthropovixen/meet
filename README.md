@@ -7,7 +7,7 @@ With this app, users can search for a city and view a list of upcoming events in
 
 #**WARNING**
 
-AWS Lambda for this App is not working properly anymore, as I had to use it for other projects. [Check my repositories to see latest projects.](https://github.com/anthropovixen)
+AWS Lambda for this App may not be working properly anymore, as I had to use it for other training projects. [Check my repositories to see latest projects.](https://github.com/anthropovixen)
 
 **See the hosted application [here](https://anthropovixen.github.io/webdevmeetup/).**
 
