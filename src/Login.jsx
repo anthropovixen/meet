@@ -52,7 +52,7 @@ function Login() {
 						</span>
 					</p>
 					<Button
-						href="https://anthropovixen.github.io/webdevmeetup/privacy.html"
+						href="https://tanimaraeliassantos.github.io/webdevmeetup/privacy.html"
 						className="privacy-button"
 						target="_blank"
 						rel="noopener noreferrer"
