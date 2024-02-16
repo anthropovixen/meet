@@ -47,7 +47,7 @@ npm run deploy
 
 ### Author
 
-[Tanimara Elias Santos](https://github.com/anthropovixen)
+[Tanimara Elias Santos](https://github.com/tanimaraeliassantos)
 
 ### Version
 
