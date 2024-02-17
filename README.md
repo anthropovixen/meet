@@ -5,8 +5,6 @@ WebDevMeetUp APP is a serverless, progressive web application (PWA) built with R
 With this app, users can search for a city and view a list of upcoming events in that city. The app also allows users to view charts displaying the amount of events that will take place on certain days and the percentage of events to take place divided by subjects.
 
 
-**See the hosted application [here](https://tanimaraeliassantos.github.io/webdevmeetup/).**
-
 ![WebDevMeetUp App](public/webdevmeetupapp.gif)
 
 ## Start the App
@@ -33,7 +31,7 @@ npm run deploy
 
 - Allows users to filter events by city
 - Allows users to show/hide event details
-- Allows users to specify number of events
+- Allows users to specify the number of events
 - Allows users to use the app when offline
 - Allows users to add an app shortcut to their home screen
 - Allows users to view chat showing numbers of upcoming events by city
